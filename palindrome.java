@@ -1,12 +1,10 @@
-import java.util.Scanner;
-
-public class task2 {
+public class Palindrome {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    
+        String input = "А роза упала на лапу Азора";
 
-        System.out.println("Введите слово или число:");
-        String input = scanner.nextLine();
+        System.out.println("Проверяем строку: " + input);
 
         if (isPalindrome(input)) {
             System.out.println("Это палиндром!");
@@ -16,19 +14,29 @@ public class task2 {
     }
 
     public static boolean isPalindrome(String str) {
+    
+        String cleanString = ""; // 
 
-        str = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+    
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isLetterOrDigit(ch)) {
+                cleanString += Character.toLowerCase(ch); 
+            }
+        }
+
+        
         int left = 0;
-        int right = str.length() - 1;
+        int right = cleanString.length() - 1;
 
         while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
+            if (cleanString.charAt(left) != cleanString.charAt(right)) {
                 return false;
             }
             left++;
             right--;
         }
+
         return true;
     }
 }
-
