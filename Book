@@ -1,0 +1,140 @@
+
+
+public class Book {
+    private String title;
+    private String author;
+    private int yearPublished;
+
+    public Book(String title, String author, int yearPublished) {
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearPublished;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    public String getBookInfo() {
+        return "Название: " + getTitle() + "\n" +
+                "Автор: " + getAuthor() + "\n" +
+                "Год опубликования: " + getYearPublished();
+    }
+
+    public void printBookDetails() {
+        System.out.println(getBookInfo());
+    }
+}
+
+class PrintedBook extends Book {
+    private int numberOfPages;
+    private String publisher;
+
+    public PrintedBook(String title, String author, int yearPublished, int numberOfPages, String publisher) {
+        super(title, author, yearPublished);
+        this.numberOfPages = numberOfPages;
+        this.publisher = publisher;
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(int numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    @Override
+    public String  getBookInfo() {
+        return super.getBookInfo() +"\n" +
+                "Издатель :" + getPublisher() + "\n" +
+                "Количество страниц :" + getNumberOfPages();
+    }
+
+    @Override
+    public void printBookDetails() {
+        System.out.println(getBookInfo());
+    }
+    public void bookType(){
+        System.out.println("This is a printed book" + "\n");
+    }
+}
+class EBook extends Book{
+    private double fileSizeMB;
+    private String fileFormat;
+
+    public EBook(String title, String author, int yearPublished, double fileSizeMB, String fileFormat){
+        super(title,author,yearPublished);
+        this.fileSizeMB = fileSizeMB;
+        this.fileFormat = fileFormat;
+    }
+
+    public String getFileFormat() {
+        return fileFormat;
+    }
+
+    public void setFileFormat(String fileFormat) {
+        this.fileFormat = fileFormat;
+    }
+
+    public double getFileSizeMB() {
+        return fileSizeMB;
+    }
+
+    public void setFileSizeMB(double fileSizeMB) {
+        this.fileSizeMB = fileSizeMB;
+    }
+    @Override
+    public String getBookInfo(){
+        return super.getBookInfo() + "\n" + "Размер файла мб :" + getFileSizeMB() + "\n"+
+                "Формат файла :" + getFileFormat();
+    }
+    @Override
+    public void printBookDetails(){
+        System.out.println(getBookInfo());
+    }
+    public void bookType(){
+        System.out.println("This is an ebook");
+    }
+
+}
+class Main{
+    public static void main(String[] args){
+        PrintedBook book1 = new PrintedBook("The Great Gatsby","F.Scott Fitzgerald",1925,218,"Scribner");
+        EBook book2 = new EBook("Java Programming for Beginners","John Smith",2020,4.5,"PDF");
+
+        System.out.println("Printed Book Info :");
+        book1.printBookDetails();book1.bookType();
+        System.out.println("Ebook Info :");
+        book2.printBookDetails();book2.bookType();
+
+    }
+}
