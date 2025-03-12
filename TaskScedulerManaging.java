@@ -55,7 +55,7 @@ class Task implements Comparable<Task> {
     @Override
     public int compareTo(Task other) {
         if (this.priority != other.priority) {
-            return Integer.compare(other.priority, this.priority);
+            return Integer.compare(other.priority, this.priority); 
         }
         return Integer.compare(this.duration, other.duration);
     }
@@ -65,6 +65,7 @@ class Task implements Comparable<Task> {
         return "[Priority " + priority + "] " + taskName + " (Duration: " + duration + " mins)";
     }
 }
+
 public class TaskScedulerManaging {
     private PriorityQueue<Task> taskQueue;
     private Queue<Task> pendingQueue;
@@ -107,14 +108,20 @@ public class TaskScedulerManaging {
     }
 
     public void displayTasks() {
-        System.out.println("\nScheduled Tasks (sorted by priority):");
-        for (Task task : taskQueue) {
-            System.out.println(task);
+            System.out.println("Scheduled Tasks (sorted by priority):");
+            PriorityQueue<Task> tempQueue = new PriorityQueue<>(taskQueue);
+            while (!tempQueue.isEmpty()) {
+                System.out.println(tempQueue.poll());
+
         }
 
         System.out.println("\nPending Tasks (FIFO Order):");
-        for (Task task : pendingQueue) {
-            System.out.println(task);
+        if (pendingQueue.isEmpty()) {
+            System.out.println("No pending tasks.");
+        } else {
+            for (Task task : pendingQueue) {
+                System.out.println(task);
+            }
         }
     }
 
@@ -143,4 +150,3 @@ public class TaskScedulerManaging {
         scheduler.processNextTask();
     }
 }
-
