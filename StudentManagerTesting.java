@@ -6,12 +6,11 @@ class Student {
     private int age;
     private Set<String> courses;
 
-
     public Student(int id, String name, int age, Set<String> courses) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.courses = new HashSet<>(courses); 
+        this.courses = new HashSet<>(courses);
     }
 
     public int getId() {
@@ -60,6 +59,7 @@ class Student {
                 '}';
     }
 }
+
 class StudentManager {
     private Map<Integer, Student> students = new HashMap<>();
 
@@ -83,19 +83,22 @@ class StudentManager {
         }
     }
 
-    public void printStudentsByCourse(String course) {
-        students.values().stream()
-                .filter(student -> student.getCourses().contains(course))
-                .forEach(System.out::println);
-    }
-
     public Student findStudentById(Integer id) {
         return students.get(id);
     }
 
+    public void printStudentsByCourse(String course) {
+        for (Student student : students.values()) {
+            if (student.getCourses().contains(course)) {
+                System.out.println(student);
+            }
+        }
+    }
 
     public void printAllStudents() {
-        students.values().forEach(System.out::println);
+        for (Student student : students.values()) {
+            System.out.println(student);
+        }
     }
 }
 public class StudentManagerTesting {
@@ -117,38 +120,30 @@ public class StudentManagerTesting {
         courses3.add("JavaScript");
         Student s3 = new Student(3, "Кубанычбек Алибеков", 50, courses3);
 
-
         manager.addStudent(s1);
         manager.addStudent(s2);
         manager.addStudent(s3);
 
-
         System.out.println("Список всех студентов:");
         manager.printAllStudents();
-
 
         System.out.println("\nПоиск студента с ID 2:");
         System.out.println(manager.findStudentById(2));
 
-
         System.out.println("\nОбновляем данные студента ID 1...");
         Set<String> newCourses = new HashSet<>();
         newCourses.add("Machine Learning");
-        newCourses.add("Python"); 
+        newCourses.add("Python"); // Дубликаты не добавятся
         manager.updateStudent(1, "Алиса Петрова", 21, newCourses);
-
 
         System.out.println("\nСписок всех студентов после обновления:");
         manager.printAllStudents();
 
-
         System.out.println("\nУдаляем студента с ID 3...");
         manager.removeStudent(3);
 
-
         System.out.println("\nСписок всех студентов после удаления:");
         manager.printAllStudents();
-
 
         System.out.println("\nСтуденты, изучающие курс 'Java':");
         manager.printStudentsByCourse("Java");
