@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.TreeSet;
+
+public class TreeSet_Ex_in_w3resource {
+    public static void main(String[] args) {
+        //16. Напишите программу Java для удаления заданного элемента из набора деревьев.
+        TreeSet<String> cars = new TreeSet<>(Arrays.asList("BMW","Ferari","Zikr"));
+        cars.remove("BMW");
+        System.out.println(cars);
+
+        //15. Напишите программу Java для извлечения и удаления последнего элемента набора деревьев.
+        cars.pollLast();
+        System.out.println(cars);
+
+        //14. Напишите программу Java для извлечения и удаления первого элемента набора деревьев.
+        cars.add("Porshe");
+        cars.add("Mersedes");
+        System.out.println(cars);
+        cars.pollFirst();
+        System.out.println(cars);
+
+        //13. Напишите программу Java для получения элемента в наборе деревьев, который имеет меньшее значение, чем заданный элемент.
+        TreeSet<Integer> num = new TreeSet<>(Arrays.asList(12,21,22,34));
+        System.out.println("Меньше чем 22 : " + num.lower(22));
+        for(int i:num)
+            if(i<22){
+                System.out.println(i);
+            }
+
+        //12. Напишите программу Java, чтобы получить элемент в дереве, строго больший или равный заданному элементу.
+        System.out.println("Больше или равные числа 21: ");
+        for(int i:num)
+            if(i>=21){
+                System.out.println(i);
+            }
+
+        //11. Напишите программу Java, чтобы получить элемент в дереве, который меньше или равен заданному элементу.
+        System.out.println("Меньше или равные числа 19: " +  num.floor(19));
+
+    }
+}
