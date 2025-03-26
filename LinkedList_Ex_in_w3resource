@@ -1,0 +1,54 @@
+import java.util.*;
+
+public class LinkedList_Exercises_In_w3resource {
+    public static void main(String[] args) {
+        //26. Напишите программу Java для замены элемента в связанном списке
+
+        LinkedList<String> disneyprincess = new LinkedList<>();
+        disneyprincess.add("Merida");
+        disneyprincess.add("Mulan");
+        disneyprincess.add("Bella");
+        System.out.println(disneyprincess);
+        disneyprincess.set(2,"Moana");
+        System.out.println("После изменение:");
+        System.out.println(disneyprincess);
+
+       // 23. Напишите программу Java для преобразования связанного списка в список массивов.
+
+        List<String> list = new ArrayList<>(disneyprincess);
+        for(String str:list)
+            System.out.println(str);
+
+        //21. Напишите программу Java для извлечения, но не удаления последнего элемента связанного списка
+.
+        System.out.println("Последний элемент связанного списка:" + disneyprincess.peekLast());
+
+        //22. Напишите программу Java для проверки наличия определенного элемента в связанном списке.
+
+            if(disneyprincess.contains("Moana")){
+                System.out.println("Moana есть в списке");
+            }else{
+                System.out.println("Данный элемента нету");
+            }
+        //16. Напишите программу Java для перемешивания элементов в связанном списке.
+
+        System.out.println("До: "+disneyprincess);
+        Collections.shuffle(disneyprincess);
+        System.out.println("После: " + disneyprincess );
+
+        //4.Напишите программу Java для итерации связанного списка в обратном порядке.
+
+        System.out.println("Связанный лист в обратном порядке:");
+        for(int i = disneyprincess.size()-1;i>=0;i--){
+            System.out.println(disneyprincess.get(i));
+        }
+        System.out.println("Второй вариант :");
+        Iterator it = disneyprincess.descendingIterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+
+
+
+    }
+}
