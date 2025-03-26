@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class HashSet_Exercises_In_w3resource {
+    public static void main(String[] args) {
+        //12. Напишите программу Java для удаления всех элементов из хэш-набора
+
+        HashSet<Integer> hset1 = new HashSet<>(Arrays.asList(4,46,56));
+        HashSet<Integer> hset2 = new HashSet<>(Arrays.asList(34,46,54));
+//        System.out.println(hset1);
+//        hset1.clear();
+//        System.out.println(hset1);
+
+        //11. Напишите программу Java для сравнения двух множеств и сохранения одинаковых элементов.
+
+//        hset1.retainAll(hset2);
+//        System.out.println("Одинаковые элементы которые есть в обоих сетах:");
+//        System.out.println(hset1);
+
+        //10. Напишите программу Java для сравнения двух хэш-наборов.
+
+        LinkedHashSet<Integer> lset = new LinkedHashSet<>(Arrays.asList(23,22,24));
+        LinkedHashSet<Integer> lset2 = new LinkedHashSet<>(Arrays.asList(34,22,24));
+        for(Integer el:lset)
+            System.out.println(lset2.contains(el) ? "OK":"!OK");
+
+        //9. Напишите программу Java для поиска чисел меньше 7 в наборе деревьев.
+
+        TreeSet<Integer> numbers = new TreeSet<>(Arrays.asList(21,3,4,5,66,7,8));
+        TreeSet<Integer> mensheSeven = new TreeSet<>(numbers.headSet(7));
+        System.out.println("Числа меньше 7: " + mensheSeven);
+
+        //8. Напишите программу Java для преобразования набора хэшей в набор деревьев.
+
+        Set<Integer> tset = new TreeSet<>(hset1);
+        System.out.println("Hashset стал Treeset: " + tset);
+
+        //2. Напишите программу Java для перебора всех элементов в списке хэшей.
+
+        HashSet<String> animals = new HashSet<>(Arrays.asList("Whale","Shark","Octopus"));
+
+        Iterator<String> n = animals.iterator();
+        while(n.hasNext()){
+            System.out.println(n.next());
+        }
+
+
+    }
+}
