@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+
+public class ArrayList_Exercises_In_w3resource {
+    //13.Напишите программу Java для сравнения двух списков массивов.1
+    public static void main(String[] args) {
+        ArrayList<String> namesList1 = new ArrayList<>();
+        namesList1.add("Elina");
+        namesList1.add("Medina");
+        namesList1.add("Adina");
+        ArrayList<String> namesList2 = new ArrayList<>();
+        namesList2.add("Akbar");
+        namesList2.add("Naz");
+        namesList2.add("Medina");
+
+        ArrayList<String> compareList = new ArrayList<>();
+        for (String l1 : namesList1)
+            for (String l2 : namesList2)
+                if (l1 == l2)
+                    System.out.println(l1);
+
+
+        //15.  Напишите программу Java для объединения двух списков массивов.3
+        ArrayList<String> newarr = new ArrayList<>();
+        newarr.addAll(namesList1);
+        newarr.addAll(namesList2);
+        System.out.println("Обьедененный список: " + newarr);
+
+        //16. Напишите программу Java для клонирования списка массивов в другой список массивов.4
+        ArrayList<String> clonList = new ArrayList<>();
+        clonList = (ArrayList<String>)namesList2.clone();
+        System.out.println("Склонированный список: " + clonList);
+
+        //18. Напишите программу Java для проверки того, является ли список массивов пустым или нет.5
+        System.out.println("Массив пустой?" + namesList1.isEmpty());
+        ArrayList<Integer> emptyList = new ArrayList<>();
+        System.out.println("Массив пустой ?" + emptyList.isEmpty());
+
+        //22. Напишите программу Java для печати всех элементов ArrayList, используя позицию элементов.
+        System.out.println("Элементы списка:");
+        for(int i = 0;i<namesList1.size();i++){
+            System.out.println(namesList1.get(i));
+        }
+        System.out.println("Поменяли второй элемент:");
+        namesList1.set(1,"Syryus");
+        for(String s:namesList1)
+            System.out.println(s);
+
+
+    //14. Напишите программу Java, которая меняет
+        // местами два элемента в списке массива.2
+        System.out.println("До изменение:");
+        for(String d:namesList1)
+            System.out.println(d);
+
+        System.out.println("После изменения :");
+        menyaemElement(namesList1,0,2);
+        for(String d:namesList1)
+            System.out.println(d);
+
+
+    }
+    public static void menyaemElement(ArrayList<String> list,int index1,int index2){
+        if(index1>=0 && index1<list.size() && index2>=0 && index2< list.size()){
+            String m = list.get(index1);
+            list.set(index1,list.get(index2));
+            list.set(index2,m);
+
+        }
+        else{System.out.println("Вышли заграницу!");}
+    }
+
+
+}
