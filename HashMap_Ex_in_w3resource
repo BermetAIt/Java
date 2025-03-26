@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class HashMap_Ex_in_w3resource {
+    public static void main(String[] args) {
+       //6. Напишите программу Java для получения поверхностной копии экземпляра HashMap.
+        HashMap<Integer,String> furniture = new HashMap<>();
+        furniture.put(1,"sofa");
+        furniture.put(2,"shelf");
+        furniture.put(3,"chair");
+        System.out.println("То что мы сделали : " + furniture);
+        HashMap<Integer,String> new_furniture = new HashMap<>();
+        new_furniture = (HashMap)furniture.clone();
+        System.out.println("Клонированный : " + new_furniture);
+
+        //7. Напишите программу Java для проверки, содержит ли карта сопоставление для указанного ключа.
+        System.out.println(" Существует ли ключ 2?" );
+        if(furniture.containsKey(2)){
+            System.out.println("Yeeee " + furniture.get(2));
+        }else{
+            System.out.println("Неет");
+        }
+        //8. Напишите программу Java для проверки, содержит ли карта отображение для указанного значения.
+        System.out.println(" Существует ли значение 'shelf'?"  );
+        if(furniture.containsValue("shelf")){
+            System.out.println("Yeeee " );
+        }else{
+            System.out.println("Неет");
+        }
+        //9. Напишите программу Java для создания представления набора отображений, содержащихся в карте.
+        Set set = furniture.entrySet();
+        System.out.println("Набор значений :" + set);
+
+        //10. Напишите программу Java для получения значения указанного ключа в карте.
+        String val =(String)furniture.get(3);
+        System.out.println("Значение для ключа 3:" + val);
+
+        //11. Напишите программу Java, чтобы получить набор просмотров ключей, содержащихся в этой карте.
+        Set kset = furniture.keySet();
+        System.out.println("Ключевые значения набора :" + kset);
+    }
+}
