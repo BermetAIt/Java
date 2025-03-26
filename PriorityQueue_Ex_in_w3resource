@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+public class PriorityQueue_Ex_in_w3resource {
+    public static void main(String[] args) {
+        //12. Напишите программу Java для изменения priorityQueue на очередь с максимальным приоритетом.
+        PriorityQueue<Integer> maxp = new PriorityQueue<>(Collections.reverseOrder());
+        maxp.add(10);
+        maxp.add(20);
+        maxp.add(15);
+
+        while(!maxp.isEmpty()){
+            System.out.println(maxp.poll());
+        }
+
+        //7. Напишите программу Java для сравнения двух очередей приоритетов
+        PriorityQueue<Integer> pq1 = new PriorityQueue<>(Arrays.asList(12,2,15));
+        PriorityQueue<Integer> pq2 = new PriorityQueue<>(Arrays.asList(12,2,32));
+        for(int num:pq1) {
+            System.out.println(pq2.contains(num) ? "OK" :"!OK" );
+        }
+        //11. Напишите программу Java для преобразования элемента Priority Queue в строковые представления.
+        PriorityQueue<String> an = new PriorityQueue<>(Arrays.asList("cat","dog","cow"));
+        String str1;
+        str1 = an.toString();
+        System.out.println("Строковое представление очереди приоритетов : " + str1);
+
+        //6. Напишите программу Java для подсчета количества элементов в очереди с приоритетом.
+        System.out.println("Размер Priority Queue : " + an.size());
+
+        //4. Напишите программу Java для вставки заданного элемента в приоритетную очередь
+        System.out.println(an);
+        an.offer("hourse");
+        System.out.println(an);
+
+        //8. Напишите программу Java для извлечения первого элемента очереди приоритетов.
+        System.out.println("Первый элемент  Queue : " + an.peek());
+
+    }
+}
